@@ -16,13 +16,30 @@ namespace HtmlToPdf
         static void Main(string[] args)
         {
             string htmlFileToString = File.ReadAllText(@"C:/Users/sulem/source/repos/HtmlToPdf/HtmlToPdf/HtmlFiles/Demo2.html");
+            byte[] imageBytes = null;
 
-            //byte[] response = new System.Net.WebClient().DownloadData("https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg");
+
+            string imageUrl = "https://miro.medium.com/max/1050/1*NeKYs9ypQ7jkalNxEX3t9Q.png";//https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg;https://miro.medium.com/max/1050/1*NeKYs9ypQ7jkalNxEX3t9Q.png;https://www.jquery-az.com/html/images/banana.jpg
+
+            //byte[] response = new System.Net.WebClient().DownloadData(imageUrl);
+
+            using (var wc = new System.Net.WebClient())
+            {
+                imageBytes = wc.DownloadData(imageUrl);
+                string imageBase64 = Convert.ToBase64String(imageBytes);
+                var mimeType = wc.ResponseHeaders["content-type"];
+                if (mimeType.Contains(';'))
+                {
+                    mimeType = mimeType.Split(';')[0];
+                }
+                string svgData = $"data:{mimeType};base64,{imageBase64}";
+            }
+
             //string image = "image/svg;base64," + Convert.ToBase64String(response);
-            byte[] imageBytes = System.IO.File.ReadAllBytes(@"C:/Users/sulem/source/repos/HtmlToPdf/HtmlToPdf/ImageFiles/sample1.png");
-            string base64String = Convert.ToBase64String(imageBytes);
-           
-         
+            //byte[] imageBytes1 = System.IO.File.ReadAllBytes(@"C:/Users/sulem/source/repos/HtmlToPdf/HtmlToPdf/ImageFiles/sample1.png");
+            //string base64String = Convert.ToBase64String(imageBytes);
+
+
             /*
              
             // Converting image code 
@@ -41,7 +58,7 @@ namespace HtmlToPdf
             */
 
 
-                
+
             using (MemoryStream memoryStream = new MemoryStream())
             {
                 HtmlConverter.ConvertToPdf(htmlFileToString, memoryStream);
@@ -50,7 +67,7 @@ namespace HtmlToPdf
                 memoryStream.Close();
             }
 
-            
+
             /*
 
             //Converting HTML to pdf by using old itext sharp

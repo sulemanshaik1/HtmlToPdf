@@ -1,0 +1,125 @@
+﻿<style>
+    .nasd-table {
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: auto;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .nasd-tr-section {
+        /*background-color: rgb(0, 40, 94);*/
+        /*background-color: rgb(4, 170, 109);*/
+        background-color: rgb(128,128,128);
+        color: white
+    }
+
+    .nasd-table td {
+        border: 1px solid rgb(128,128,128);
+        padding: 8px;
+    }
+
+    .nasd-logo {
+        /*background-color: rgb(0, 40, 94);*/
+        background-color: rgb(4, 170, 109);
+        /*background-color: rgb(255, 163, 26);*/
+        width: 157px;
+        height: 80px;
+    }
+
+    .pdf-table {
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: auto;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+        .pdf-table td {
+            border: 1px solid rgb(128,128,128);
+            padding: 8px;
+        }
+
+    .pdf-table-tr {
+        background-color: rgb(4, 170, 109);
+        /*background-color: gray;*/
+        color: white
+    }
+
+    .maindiv {
+        border: 2px solid rgb(4, 170, 109);
+        padding: 8px;
+    }
+</style>
+<div class="maindiv">
+    <table class="pdf-table">
+        <tbody>
+            <tr class="pdf-table-tr">
+                <td>$Func.GetValueOf(ClientImage)</td>
+                <td align="right">$Func.GetValueOf(CrawfordImage)</td>
+            </tr>
+            <tr>
+                <td colspan="2"><br><p>Dear $Func.GetValueOf(Customer.FirstName), Thank you for submitting the claim, below are the submited details..</p><br></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div id="additionalInformation">
+        <table class="pdf-table">
+            <tbody>
+                <tr>
+                    <td>
+                        Customer Email
+                    </td>
+                    <td>$Func.GetValueOf(Customer.Email)</td>
+                </tr>
+                <tr>
+                    <td>Loss Date</td>
+                    <td>$Func.GetValueOf(DateOfAccidentOrLoss)</td>
+                </tr>
+                <tr>
+                    <td>Current DateTime</td>
+                    <td>$Func.GetCurrentDateTime()</td>
+                </tr>
+                <tr>
+                    <td>Service Center Assigned</td>
+                    <td>$Func.GetCurrentDateTime(ServiceCenter.Name)</td>
+                </tr>
+                <tr>
+                    <td>Service Center Manager</td>
+                    <td>$Func.GetCurrentDateTime(ServiceCenter.Manager)</td>
+                </tr>
+                <tr>
+                    <td>Service Center Address</td>
+                    <td>$Func.GetCurrentDateTime(ServiceCenter.FullAddress)</td>
+                </tr>
+                <!--<tr>
+                    <td>Phone</td>
+                    <td>$Func.GetCurrentDateTime(ServiceCenter.Phone)</td>
+                </tr>
+                <tr>
+                    <td>Fax</td>
+                    <td>$Func.GetCurrentDateTime(ServiceCenter.FAX)</td>
+                </tr>-->
+
+            </tbody>
+        </table>
+    </div>
+    <div id="newassignmentSourceData">
+        $Func.GetValueOf(NewAssignmentSourceData)
+    </div>
+    <table class="pdf-table">
+        <tbody>
+            <tr>
+                <td align="center" class="pdf-table-tr">
+                    <br> <br><span style="font-size:20px;">
+                        <i>
+                            Crawford and Company's mission is to be the service provider of choice by delivering the highest quality claims and administrative solution in each of the markets we serve.
+                        </i>
+                    </span> <br> <br>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

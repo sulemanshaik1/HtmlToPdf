@@ -1,0 +1,56 @@
+﻿<style>
+    .nasd-table {
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .nasd-tr-section {
+        background-color: rgb(0, 40, 94);
+        color: white
+    }
+
+    .nasd-logo {
+        background-color: rgb(0, 40, 94);
+        width: 157px;
+    }
+</style>
+<div id="logoDisplayInfo">
+    <table style="table-layout: fixed; border-collapse:collapse;width: 100%;" border="1">
+        <tbody>
+            <tr style="background-color: rgb(0, 40, 94)">
+                <td>$Func.GetValueOf(ClientImage)</td>
+                <td>$Func.GetValueOf(CrawfordImage)</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center"><p>Dear $Func.GetValueOf(Customer.FirstName), Thank you for submitting the claim.</p></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="additionalInformation">
+    <table style="table-layout: fixed; border-collapse:collapse;width: 100%" border="1">
+        <tbody>
+            <tr>
+                <td>
+                    Customer Email
+                </td>
+                <td>$Func.GetValueOf(Customer.Email)</td>
+            </tr>
+            <tr>
+                <td>Loss Date</td>
+                <td>$Func.GetValueOf(DateOfAccidentOrLoss)</td>
+            </tr>
+            <tr>
+                <td>Current DateTime</td>
+                <td>$Func.GetCurrentDateTime()</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="nasdAssignmentsourceData">
+       $Func.GetValueOf(NewAssignmentSourceData)
+</div>
+
+
+

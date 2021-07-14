@@ -1,0 +1,209 @@
+﻿
+<style>
+    .nasd-table {
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .nasd-tr-section {
+        background-color: rgb(32,68,134);
+        color: rgb(161,194,254)
+    }
+
+
+
+    .nasd-cr-logo {
+        background-color: rgb(32,68,134);
+        width: 157px;
+        height: 80px;
+    }
+
+    .nasd-cl-logo {
+        background-color: rgb(32,68,134);
+        width: 157px;
+        height: 80px;
+    }
+
+    .header-table {
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed
+    }
+
+    .header-table-tr {
+        background-color: rgb(32,68,134);
+        color: rgb(161,194,254)
+    }
+
+    .footer-table {
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .footer-table-tr {
+        background-color: rgb(32,68,134);
+        color: rgb(161,194,254)
+    }
+</style>
+
+<div>
+    <table class="header-table" border="1">
+        <tbody>
+            <tr class="header-table-tr">
+                <!--<td>$Func.GetValueOf(ClientImage)</td>
+                <td>$Func.GetValueOf(CrawfordImage)</td>-->
+                <td>
+                    <a href='https://www.crawco.com/'><img class="nasd-cr-logo" src='data:image/octet-stream;base64,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' /></a>
+                </td>
+                <td align="right">
+                    <a href='https://us-continuousdeployment-fnol-users-ui.claims.global/sulemandemosite'><img class="nasd-cl-logo" src='data:image/octet-stream;base64,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' /></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <p style="text-align:center"><strong>Dear $Func.GetValueOf(Customer.FirstName), Thank you for submitting the claim.</strong></p>
+    <p style="text-align:center"><strong>Thank you for submiting the claim. Below is the conformation of your submission</strong></p>
+</div>
+
+<div>
+    <table style="table-layout: fixed; border-collapse:collapse;width: 100%" border="1">
+        <tbody>
+            <tr>
+                <td>
+                    Customer Email
+                </td>
+                <td>$Func.GetValueOf(Customer.Email)</td>
+            </tr>
+            <tr>
+                <td>Loss Date</td>
+                <td>$Func.GetValueOf(DateOfAccidentOrLoss)</td>
+            </tr>
+            <tr>
+                <td>Current DateTime</td>
+                <td>$Func.GetCurrentDateTime()</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="nasd">
+    <!--   $Func.GetValueOf(NewAssignmentSourceData)-->
+
+    <table class="nasd-table" border="1">
+        <tbody>
+            <tr class="nasd-tr-section">
+                <td colspan="2"><strong>Customer</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Name</strong></td>
+                <td>suleman</td>
+            </tr>
+            <tr>
+                <td><strong>Company</strong></td>
+                <td>company</td>
+            </tr>
+            <tr>
+                <td><strong>Street Address</strong></td>
+                <td>1 Apple Park Way</td>
+            </tr>
+            <tr>
+                <td><strong>City</strong></td>
+                <td>Cupertino</td>
+            </tr>
+            <tr>
+                <td><strong>State</strong></td>
+                <td>California</td>
+            </tr>
+            <tr>
+                <td><strong>Zip Code</strong></td>
+                <td>95014</td>
+            </tr>
+            <tr>
+                <td><strong>Country</strong></td>
+                <td>United States</td>
+            </tr>
+            <tr>
+                <td><strong>Phone</strong></td>
+                <td>1346425646</td>
+            </tr>
+            <tr>
+                <td><strong>Ext</strong></td>
+                <td>757657</td>
+            </tr>
+            <tr>
+                <td><strong>Email</strong></td>
+                <td>suleman.shaik@sonata-software.com</td>
+            </tr>
+            <tr>
+                <td><strong>Claim Number</strong></td>
+                <td>clma123</td>
+            </tr>
+            <tr>
+                <td><strong>Date of Accident/ Loss</strong></td>
+                <td>07-01-2021</td>
+            </tr>
+            <tr class="nasd-tr-section">
+                <td colspan="2"><strong>Insured</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Last Name/ Business Name</strong></td>
+                <td>s</td>
+            </tr>
+            <tr>
+                <td><strong>First Name</strong></td>
+                <td>s</td>
+            </tr>
+            <tr>
+                <td><strong>Street Address</strong></td>
+                <td>11 Haverdijk</td>
+            </tr>
+            <tr>
+                <td><strong>City</strong></td>
+                <td>Helmond</td>
+            </tr>
+            <tr>
+                <td><strong>State</strong></td>
+                <td>Alaska</td>
+            </tr>
+            <tr>
+                <td><strong>Zip Code</strong></td>
+                <td>57042</td>
+            </tr>
+            <tr>
+                <td><strong>Country</strong></td>
+                <td>United States</td>
+            </tr>
+            <tr>
+                <td><strong>Type</strong></td>
+                <td>Cell</td>
+            </tr>
+            <tr>
+                <td><strong>Type</strong></td>
+                <td>Home</td>
+            </tr>
+        <tbody>
+    </table>
+</div>
+<br />
+<div>
+    <table class="footer-table" border="1">
+        <tbody>
+            <tr class="footer-table-tr">
+                <td align="center">
+                    <span>
+                        <strong>
+                            Crawford and Company's mission is to be the service provider of choice by delivering the highest quality claims and administrative solution in each of the markets we serve.
+                        </strong>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
